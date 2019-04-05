@@ -1,6 +1,10 @@
 package golangexamples
 
-import "github.com/ehteshamz/greetings"
+import (
+	"fmt"
+
+	"github.com/ehteshamz/greetings"
+)
 
 //ConcatSlice The first function
 func ConcatSlice(sliceToConcat []byte) string {
@@ -14,36 +18,18 @@ func ConcatSlice(sliceToConcat []byte) string {
 	return concatSlice
 }
 
-//Encrypt.... THe Second Function
-func Enrypt(sliceToEncrypt []byte, ceaserCount int) []byte {
+//Encrpt Function
+func Encrypt(sliceToEncrypt []byte, ceaserCount int) {
+	encrypted := ""
 	for i := 0; i < len(sliceToEncrypt); i++ {
-		if sliceToEncrypt[i]+byte(ceaserCount) >= 122 {
-			sliceToEncrypt[i] = ((sliceToEncrypt[i]+byte(ceaserCount))%122 + 96)
-		} else {
-			sliceToEncrypt[i] = (sliceToEncrypt[i] + byte(ceaserCount))
-		}
-
+		encrypted = encrypted + string(int(sliceToEncrypt[i])+ceaserCount)
 	}
+	fmt.Println(encrypted)
 
-	return sliceToEncrypt
 }
 
 //EZGreetings is a global function
 func EZGreetings(name string) string {
 	return (greetings.PrintGreetings(name))
 
-}
-
-//Encrypt11.... THe Second Function
-func Enrypt11(sliceToEncrypt []byte, ceaserCount int) []byte {
-	for i := 0; i < len(sliceToEncrypt); i++ {
-		if sliceToEncrypt[i]+byte(ceaserCount) >= 122 {
-			sliceToEncrypt[i] = ((sliceToEncrypt[i]+byte(ceaserCount))%122 + 96)
-		} else {
-			sliceToEncrypt[i] = (sliceToEncrypt[i] + byte(ceaserCount))
-		}
-
-	}
-
-	return sliceToEncrypt
 }
