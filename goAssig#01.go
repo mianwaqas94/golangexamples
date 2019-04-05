@@ -33,3 +33,17 @@ func EZGreetings(name string) string {
 	return (greetings.PrintGreetings(name))
 
 }
+
+//Encrypt11.... THe Second Function
+func Enrypt11(sliceToEncrypt []byte, ceaserCount int) []byte {
+	for i := 0; i < len(sliceToEncrypt); i++ {
+		if sliceToEncrypt[i]+byte(ceaserCount) >= 122 {
+			sliceToEncrypt[i] = ((sliceToEncrypt[i]+byte(ceaserCount))%122 + 96)
+		} else {
+			sliceToEncrypt[i] = (sliceToEncrypt[i] + byte(ceaserCount))
+		}
+
+	}
+
+	return sliceToEncrypt
+}
